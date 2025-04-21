@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notacion para una solicitud de mantenimiento correctivo.</title>
+    <!-- css bootstrap (local) -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS (local) -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="NotacionSolicitudMantenimientoCorrectivo.css">
+    <script src="js/NotacionSolicitudMantenimientoCorrectivo.js"></script>
+</head>
+<body>
+    <form class="col-md-12 col-12" id="miFormulario">
+        <div class="col-md-12 col-12">
+            <h2 class="text-left text-uppercase">Formulario de solicitud de mantenimiento correctivo de software.</h2>
+            <h4 class="text-left">Elementos del formulario:</h4>
+        </div>
+        <div class="tabs">
+            <div class="tab active" data-tab="tab1" onclick="selectTab()">Subflujo recepción y análisis de viabilidad de la solicitud</div>
+            <div class="tab" data-tab="tab2" onclick="selectTab()">Subflujo ejecutar solicitud de mantenimiento correctivo</div>
+            <div class="tab" data-tab="tab3" onclick="selectTab()">Subflujo desarrollar solución a la solicitud de mantenimiento correctivo</div>
+            <div class="tab" data-tab="tab4" onclick="selectTab()">Subflujo monitoreo y control</div>
+        </div>
+        <div class="tab-content active" id="tab1">
+            <!-- tabla con la informacion de los elementos por usuario -->
+            <table class="table table-hover table-black-border table-aling-content">
+                <!-- elementos para el rol de usuario -->
+                <thead class="thead-light text-center" style="background-color: #d0f0ff; color: #040469;">
+                    <tr>
+                        <!-- <th scope="col" colspan="2">Subflujo donde se diligencia el elemento</th> -->
+                        <th scope="col">Actividad donde se diligencia el elemento</th>
+                        <th scope="col">Usuario responsable del elemento</th>
+                        <th scope="col">Nombre del elemento</th>
+                        <th scope="col">Campos del elemento</th>
+                    </tr>
+                </thead>
+                <tbody style="color: #040469;">
+                    <tr class="col-md-12 col-12" style="background-color: white;">
+                        <!-- <td rowspan="13" colspan="2" class="col-md-1 col-1 text-center" style="background-color: rgb(236, 236, 236);">Recepción de viabilidad de la solicitud</td> -->
+                        <tr class="col-md-12 col-12">
+                            <td rowspan="12" class="col-md-1 col-1 text-center" style="background-color: #d0f0ff">Registrar información general para la solicitud de mantenimiento</td>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Datos del usuario que solicita el mantenimiento</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="col-md-12 col-12">
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Nombre:</span>
+                                            <input type="text" class="form-control entrada-texto" id="nombreUsuario">
+                                        </div>
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Identificacion:</span>
+                                            <input type="text" class="form-control entrada-texto" id="identificacionUsuario">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Correo:</span>
+                                            <input type="text" class="form-control entrada-texto" id="correoUsuario">
+                                        </div>
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Celular:</span>
+                                            <input type="text" class="form-control entrada-texto" id="celularUsuario">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Tipo de originador:</span>
+                                            <select class="form-select entrada-texto" aria-label="Default select example" id="tipoUsuario">
+                                                <option selected>Seleccione una opcion</option>
+                                                <option value="Usuario">Usuario</option>
+                                                <option value="Sitios (una estación de trabajo o una unidad informática)">Sitio</option>
+                                                <option value="Cliente">Cliente</option>
+                                                <option value="Organizacion contratista">Organizacion contratista</option>
+                                            </select>
+                                        </div>
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Clase de originador:</span>
+                                            <select class="form-select entrada-texto" aria-label="Default select example" id="claseUsuario">
+                                                <option selected>Seleccione una opcion</option>
+                                                <option value="Interno">Interno</option>
+                                                <option value="Externo">Externo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>Fecha y hora de la ocurrencia de los síntomas del error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <input type="datetime-local" class="form-control entrada-texto" placeholder="dd/mm/aaaa" id="fechaHoraOcurrenciaSintomas">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Nombre del producto software afectado por el error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control entrada-texto" id="nombreProductoAfectado">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Descripción e imagen de los síntomas observados cuando ocurre el error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="col-md-12 col-12 d-flex justify-content-center gap-3">
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Cuando intento:</span>
+                                            <textarea class="form-control entrada-texto" rows="1" id="cuandoIntentoSintomaInput"></textarea>
+                                        </div>
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Entonces observo que:</span>
+                                            <textarea class="form-control entrada-texto" rows="1" id="entoncesObservoSintomaInput"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12 d-flex justify-content-center gap-3">
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Pero esperaba que:</span>
+                                            <textarea class="form-control entrada-texto" rows="1" id="peroEsperabaSintomaInput"></textarea>
+                                        </div>
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Como evidencia, adjunto:</span>
+                                            <input type="file" class="form-control entrada-texto" id="evidenciaSintomaInput" aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="image/*">
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <button class="btn btn-outline-primary w-100" type="button" onclick="saveSintomas()" id="btnSintomas">Guardar</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <table class="table table-hover" id="tablaSintomas" style="color: #040469;">
+                                            <thead class="thead-light text-center" style="background-color: #ecf9ff; color: #040469;">
+                                                <tr>
+                                                    <th scope="col">Cuando intento</th>
+                                                    <th scope="col">Entonces observo que</th>
+                                                    <th scope="col">Pero esperaba que</th>
+                                                    <th scope="col">Como evidencia, adjunto</th>
+                                                    <th scope="col">Acci&oacute;n</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                            </tbody>
+                                            <tfoot>
+                                                <tr id="noSintomasRow">
+                                                <td colspan="5">Aún no se han registrado sintomas del error.</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Entorno donde se presenta el error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="entornoError"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Funcionalidad donde se presenta el error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="funcionalidadError"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>Nombre de la vista donde se presentó el error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control entrada-texto" id="nombreVistaError">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>Datos de entrada digitados por el usuario antes de que ocurra el error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="datosEntradaUsuario"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>Pasos realizados antes de que se genere el error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="pasosAntesError"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Consecuencias del error para el negocio</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="consecuenciaErrorNegocio"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Identificación de la solicitud de mantenimiento </span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control entrada-texto" id="identificacionSolicitud">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tr>
+                    </tr>
+                    <tr class="col-md-12 col-12" style="background-color: lightseagreen;">
+                        <!-- <td rowspan="10" colspan="2" class="col-md-1 col-1 text-center" style="background-color: rgb(236, 236, 236);">Análisis de viabilidad de la solicitud</td> -->
+                        <tr class="col-md-12 col-12">
+                            <td rowspan="2" class="col-md-1 col-1 text-center" style="background-color: #d0f0ff">Determinar si la respuesta a la solicitud requiere un tipo de mantenimiento</td>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Mesa de ayuda</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*¿La solicitud requiere algún tipo de mantenimiento?</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Si"
+                                            onclick="toggleCheckboxesSolicitudRequiereAlgúnMantenimiento(true)">
+                                            <label class="form-check-label entrada-texto" for="inlineRadio1">Si</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="No"
+                                            onclick="toggleCheckboxesSolicitudRequiereAlgúnMantenimiento(false)">
+                                            <label class="form-check-label entrada-texto" for="inlineRadio2">No</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tr>
+                        <tr class="col-md-12 col-12">
+                            <td rowspan="2" class="col-md-1 col-1 text-center" style="background-color: #d0f0ff">Plantear solución a la solicitud</td>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Mesa de ayuda</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>Solucion planteada a la solicitud en caso de que no exista un error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="solucionNoError"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tr>
+                        <tr class="col-md-12 col-12">
+                            <td rowspan="5" class="col-md-1 col-1 text-center" style="background-color: #d0f0ff">Determinar que tipo de mantenimiento se requiere</td>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Mesa de ayuda</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Tipo de mantenimiento identificado para la solicitud</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select entrada-texto" aria-label="Default select example" id="tipoMantenimientoIdentificado">
+                                            <option selected>Seleccione una opcion</option>
+                                            <option value="Mantenimiento correctivo">Mantenimiento correctivo</option>
+                                            <option value="Mantenimiento preventivo">Mantenimiento preventivo</option>
+                                            <option value="Mantenimiento adaptativo">Mantenimiento adaptativo</option>
+                                            <option value="Mantenimiento perfectivo">Mantenimiento perfectivo</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr> 
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Mesa de ayuda</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Tipo de incidencia</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select entrada-texto-label" aria-label="Default select example" id="tipoIncidencia">
+                                            <option selected>Seleccione una opcion</option>
+                                            <option value="Nuevo">Nuevo</option>
+                                            <option value="Duplicado">Duplicado</option>
+                                            <option value="Pendiente de revision">Pendiente de revision</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Mesa de ayuda</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>Persona que autoriza el proceso de mantenimiento</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="col-md-12 col-12">
+                                        <div class="input-group-2 mb-3 col-md-4 col-4">
+                                            <span class="input-group-text entrada-texto-label">*Nombre:</span>
+                                            <input type="text" class="form-control entrada-texto" id="nombrePersona">
+                                        </div>                                        
+                                        <div class="input-group-2 mb-3 col-md-4 col-4">
+                                            <span class="input-group-text entrada-texto-label">*Correo:</span>
+                                            <input type="text" class="form-control entrada-texto" id="correoPersona">
+                                        </div>
+                                        <div class="input-group-2 mb-3 col-md-3 col-3">
+                                            <span class="input-group-text entrada-texto-label">*Cargo:</span>
+                                            <input type="text" class="form-control entrada-texto" id="cargoPersona">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Mesa de ayuda</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Equipo responsable del desarrollo de la solución del error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="col-md-12 col-12 d-flex flex-wrap gap-3">
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Nombre persona:</span>
+                                            <input type="text" class="form-control entrada-texto" id="nombreInput">
+                                        </div>
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*Correo persona:</span>
+                                            <input type="text" class="form-control entrada-texto" id="correoInput">
+                                        </div>
+                                        <div class="input-group-2 mb-3 col-md-1 col-1">
+                                            <button class="btn btn-outline-primary" type="button" onclick="savePersonal()" id="btnPersonal">Guardar</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <table class="table table-hover" id="tablaPersonal" style="color: #040469;">
+                                            <thead class="thead-light text-center" style="background-color: #ecf9ff; color: #040469;">
+                                                <tr>
+                                                    <th scope="col">Nombre persona</th>
+                                                    <th scope="col">Correo persona</th>
+                                                    <th scope="col">Acci&oacute;n</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                            </tbody>
+                                            <tfoot>
+                                                <tr id="noPersonasRow">
+                                                  <td colspan="4">Aún no se han registrado personas.</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tr>
+                    </tr>                
+                </tbody>
+            </table>
+        </div>      
+
+        <!-- tabla 2 -->
+        <div class="tab-content" id="tab2">
+            <table class="table table-hover table-black-border table-aling-content">
+                <thead class="thead-light text-center" style="background-color: #d0f0ff; color: #040469;">
+                    <tr>
+                        <!-- <th scope="col" colspan="2">Subflujo donde se diligencia el elemento</th> -->
+                        <th scope="col">Actividad donde se diligencia el elemento</th>
+                        <th scope="col">Usuario responsable del elemento</th>
+                        <th scope="col">Nombre del elemento</th>
+                        <th scope="col">Campos del elemento</th>
+                    </tr>
+                </thead>
+                <tbody style="color: #040469;">
+                    <tr class="col-md-12 col-12" style="background-color: lightseagreen;">
+                        <!-- <td rowspan="14" colspan="2" class="col-md-1 col-1 text-center" style="background-color: rgb(236, 236, 236);">Ejecutar solución a la solicitud de mantenimiento correctivo</td> -->
+                        <tr class="col-md-12 col-12">
+                            <td rowspan="2" class="col-md-1 col-1 text-center" style="background-color: #d0f0ff">Establecer el requisito funcional asociado al error</td>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Equipo de desarrollo</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Identificador de los requisitos vinculados al error detectado</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="identificadorRequisitosError"></textarea>
+                                    </div>
+                                </td>
+                            </tr>                            
+                        </tr>
+                        <tr class="col-md-12 col-12">
+                            <td rowspan="8" class="col-md-1 col-1 text-center" style="background-color: #d0f0ff">Definir las causas del error y componentes software involucrados</td>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Equipo de desarrollo</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Descripción detallada de las causas del error que ocasiona los síntomas</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="col-md-12 col-12 d-flex justify-content-center gap-3">
+                                        <div class="input-group-2 mb-3 col-md-6 col-6">
+                                            <span class="input-group-text entrada-texto-label">*Se detectó que los síntomas del error son causados por:</span>
+                                            <textarea class="form-control entrada-texto" rows="1" id="causadoCausaInput"></textarea>
+                                        </div>
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <span class="input-group-text entrada-texto-label">*A partir del análisis de:</span>
+                                            <textarea class="form-control entrada-texto" rows="1" id="analisisCausaInput"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12 d-flex justify-content-center gap-3">
+                                        <div class="input-group-2 mb-3 col-md-6 col-6">
+                                            <span class="input-group-text entrada-texto-label">*Los que ocasiona que el sistema:</span>
+                                            <textarea class="form-control entrada-texto" rows="1" id="ocasionaCausaInput"></textarea>
+                                        </div>
+                                        <div class="input-group-2 mb-3 col-md-5 col-5">
+                                            <button class="btn btn-outline-primary w-100" type="button" onclick="saveCausas()" id="btnCausas">Guardar</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <table class="table table-hover" id="tablaCausas" style="color: #040469;">
+                                            <thead class="thead-light text-center" style="background-color: #ecf9ff; color: #040469;">
+                                                <tr>
+                                                    <th scope="col">Se detectó que los síntomas del error son causados por</th>
+                                                    <th scope="col">A partir del análisis de</th>
+                                                    <th scope="col">Los que ocasiona que el sistema</th>
+                                                    <th scope="col">Acci&oacute;n</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                            </tbody>
+                                            <tfoot>
+                                                <tr id="noCausasRow">
+                                                <td colspan="4">Aún no se han registrado causas del error.</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Equipo de desarrollo</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Nombre y ubicación de los componentes software impactados por el error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="nombreUbicacionSoftwareInpactados"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Equipo de desarrollo</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>Problemas reportados anteriormente los cuales están relacionados con el error</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="problemasReportadosAnteriormente"></textarea>
+                                    </div>
+                                </td>
+                            </tr>        
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Equipo de desarrollo</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Consecuencias del error para otros componentes software</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="consecuenciasErrorComponentes"></textarea>
+                                    </div>
+                                </td>
+                            </tr>  
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Equipo de desarrollo</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Nivel de prioridad de la solicitud</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select entrada-texto" aria-label="Default select example" id="nivelPrioridad">
+                                            <option selected>Seleccione una opcion</option>
+                                            <option value="Alta">Alta</option>
+                                            <option value="Media">Media</option>
+                                            <option value="Baja">Baja</option>
+                                            <option value="Critica">Critica</option>
+                                            <option value="Normal">Normal</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr> 
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Equipo de desarrollo</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>Sugerencias para solucionar el problema temporalmente</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="sugerenciasSolucionProblemaTemp"></textarea>
+                                    </div>
+                                </td>
+                            </tr>  
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Equipo de desarrollo</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Tiempo estimado para implementar la solución del error identificado</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control entrada-texto" rows="2" id="tiempoEstimadoSolucion"></textarea>
+                                    </div>
+                                </td>
+                            </tr>          
+                        </tr>
+                        <tr class="col-md-12 col-12">
+                            <td rowspan="2" class="col-md-1 col-1 text-center" style="background-color: #d0f0ff">Definir si la solución desencadena una solución diferente al mantenimiento correctivo</td>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Equipo de desarrollo</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*¿La solucion desencadena una solucion diferente al mantenimiento correctivo?</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio1" value="Si"
+                                            onclick="toggleCheckboxes(true)">
+                                            <label class="form-check-label entrada-texto" for="inlineRadio1">Si</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="No"
+                                            onclick="toggleCheckboxes(false)">
+                                            <label class="form-check-label entrada-texto" for="inlineRadio2">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="display-checkbox-container" id="checkboxContainer">
+                                            <hr>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" value="Mantenimiento preventivo" id="flexCheckPreventico">
+                                                <label class="form-check-label entrada-texto" for="flexCheckDefault">Mantenimiento preventivo</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" value="Mantenimiento perfectivo" id="flexCheckPerfectivo">
+                                                <label class="form-check-label entrada-texto" for="flexCheckChecked">Mantenimiento perfectivo</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" value="Mantenimiento adaptativo" id="flexCheckAdaptativo">
+                                                <label class="form-check-label entrada-texto" for="flexCheckChecked">Mantenimiento adaptativo</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>                      
+                        </tr> 
+                    </tr>                
+                </tbody>
+            </table>
+        </div>
+        <!-- Tabla 3 -->
+        <div class="tab-content" id="tab3">
+            <table class="table table-hover table-black-border table-aling-content">
+                <thead class="thead-light text-center" style="background-color: #d0f0ff; color: #040469;">
+                    <tr>
+                        <!-- <th scope="col" colspan="2">Subflujo donde se diligencia el elemento</th> -->
+                        <th scope="col">Actividad donde se diligencia el elemento</th>
+                        <th scope="col">Usuario responsable del elemento</th>
+                        <th scope="col">Nombre del elemento</th>
+                        <th scope="col">Campos del elemento</th>
+                    </tr>
+                </thead>
+                <tbody style="color: #040469;">
+                    <tr class="col-md-12 col-12" style="background-color: lightseagreen;">
+                        <!-- <td rowspan="5" colspan="2" class="col-md-1 col-1 text-center" style="background-color: rgb(236, 236, 236);">Desarrollar solución a la solicitud de mantenimiento correctivo</td> -->
+                        <tr class="col-md-12 col-12">
+                            <td rowspan="2" class="col-md-1 col-1 text-center" style="background-color: #d0f0ff">Determinar si el tipo de mantenimiento es correctivo urgente o no urgente</td>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Equipo de desarrollo</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Tipo de mantenimiento correctivo</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select entrada-texto" aria-label="Default select example" id="tipoMantenimientoCorrectivo">
+                                            <option selected>Seleccione una opcion</option>
+                                            <option value="Alta">Urgente</option>
+                                            <option value="Media">No urgente</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tr>
+                        <tr class="col-md-12 col-12">
+                            <td rowspan="2" class="col-md-1 col-1 text-center" style="background-color: #d0f0ff">Elegir solución más adecuada / Establecer solución</td>
+                            <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                <span>Equipo de desarrollo</span>
+                            </td>
+                            <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                <span>*Solución al error</span>
+                            </td>
+                            <td class="col-md-6 col-6 text-center">
+                                <div class="col-md-12 col-12 d-flex justify-content-center gap-3">
+                                    <div class="input-group-2 mb-3 col-md-5 col-5">
+                                        <span class="input-group-text entrada-texto-label">*Cuando se implemente:</span>
+                                        <textarea class="form-control entrada-texto" rows="1" id="cuandoImplementeSolucionInput"></textarea>
+                                    </div>
+                                    <div class="input-group-2 mb-3 col-md-5 col-5">
+                                        <span class="input-group-text entrada-texto-label">*Entonces se espera que:</span>
+                                        <textarea class="form-control entrada-texto" rows="1" id="entoncesEsperaSolucionInput"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12 d-flex justify-content-center gap-3">
+                                    <div class="input-group-2 mb-3 col-md-5 col-md-5">
+                                        <span class="input-group-text entrada-texto-label">*Para validar la solución, se realizará:</span>
+                                        <textarea class="form-control entrada-texto" rows="1" id="paraValidarSolucionInput"></textarea>
+                                    </div>
+                                    <div class="input-group-2 mb-3 col-md-5 col-5">
+                                        <button class="btn btn-outline-primary w-100" type="button" onclick="saveSoluciones()" id="btnSoluciones">Guardar</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <table class="table table-hover" id="tablaSoluciones" style="color: #040469;">
+                                        <thead class="thead-light text-center" style="background-color: #ecf9ff; color: #040469;">
+                                            <tr>
+                                                <th scope="col">Cuando se implemente</th>
+                                                <th scope="col">Entonces se espera que</th>
+                                                <th scope="col">Para validar la solución, se realizará</th>
+                                                <th scope="col">Acci&oacute;n</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                        </tbody>
+                                        <tfoot>
+                                            <tr id="noSolucionesRow">
+                                            <td colspan="4">Aún no se han registrado soluciones al error.</td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </td>                            
+                        </tr>
+                    </tr>                
+                </tbody>
+            </table>
+        </div>
+        <!-- Tabla 4 -->
+        <div class="tab-content" id="tab4">
+            <table class="table table-hover table-black-border table-aling-content">
+                <thead class="thead-light text-center" style="background-color: #d0f0ff; color: #040469;">
+                    <tr>
+                        <!-- <th scope="col" colspan="2">Subflujo donde se diligencia el elemento</th> -->
+                        <th scope="col">Actividad donde se diligencia el elemento</th>
+                        <th scope="col">Usuario responsable del elemento</th>
+                        <th scope="col">Nombre del elemento</th>
+                        <th scope="col">Campos del elemento</th>
+                    </tr>
+                </thead>
+                <tbody style="color: #040469;">
+                    <tr class="col-md-12 col-12" style="background-color: lightseagreen;">
+                        <!-- <td rowspan="5" colspan="2" class="col-md-1 col-1 text-center" style="background-color: rgb(236, 236, 236);">Monitoreo y control</td> -->
+                        <tr class="col-md-12 col-12">
+                            <td rowspan="4" class="col-md-1 col-1 text-center" style="background-color: #d0f0ff">Monitorizar y controlar el estado de la solicitud</td>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Usuario</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Fecha y hora de apertura de la solicitud </span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <input type="datetime-local" class="form-control entrada-texto" placeholder="dd/mm/aaaa" id="fechaHoraApertura">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Equipo de desarrollo</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Fecha y hora de cierre de la solicitud</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <input type="datetime-local" class="form-control entrada-texto" placeholder="dd/mm/aaaa" id="fechaHoraCierre">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="col-md-12 col-12">
+                                <td class="col-md-1 col-1 text-center border-left-dynamic">
+                                    <span>Mesa de ayuda</span>
+                                </td>
+                                <td class="col-md-3 col-3 text-center border-left-dynamic">
+                                    <span>*Estado de la solicitud</span>
+                                </td>
+                                <td class="col-md-6 col-6 text-center">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select entrada-texto" aria-label="Default select example" id="estadoSolicitud">
+                                            <option selected>Seleccione una opcion</option>
+                                            <option value="Mantenimiento correctivo urgente">Abierta</option>
+                                            <option value="Mantenimiento correctivo no urgente">Cerrada</option>
+                                            <option value="Mantenimiento preventivo">Cancelada</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>                              
+                        </tr>
+                    </tr>                
+                </tbody>
+            </table>
+            <div class="col-md-6 col-6">
+                <div class="input-group-2 mb-3 mt-3">
+                    <button class="btn btn-outline-primary w-100" id="descargarBtn" type="button" onclick="descargarJSON()" disabled>
+                        Descargar informaci&oacute;n solicitud
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
